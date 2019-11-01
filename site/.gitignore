@@ -1,0 +1,6 @@
+schema.graphql
+.graphqlconfig
+.assets
+node_modules
+.next
+.env

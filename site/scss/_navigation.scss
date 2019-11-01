@@ -1,0 +1,83 @@
+nav.fixed-top:not(.bg-transparent) {
+  box-shadow: 0 1px 1px #00000017;
+}
+
+.at-top .nav-transparent {
+  #main-nav {
+    box-shadow: none;
+    background-color: transparent !important;
+  }
+}
+
+.burger {
+  z-index: 99999;
+  font-size: 8px;
+  margin-right: 5px !important;
+}
+.burger .burger-lines,
+.burger .burger-lines:after,
+.burger .burger-lines:before { background-color: black; }
+
+@media (min-width: 992px) {
+  .burger {
+    display: none;
+  }
+}
+
+.full-nav {
+  z-index: 2;
+}
+
+.hidden {
+  display:none;
+}
+
+.sidebar {
+  width: 100vw;
+  height: 100vh;
+  background: #FFFFFF;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.sidebar ul {
+  background: #FFFFFF;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+}
+
+.sidebar li {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 44px;
+  box-sizing: border-box;
+  margin: 5px 0;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -85px;
+  visibility: hidden;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #c3c3c3;
+}

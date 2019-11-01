@@ -1,0 +1,97 @@
+{
+  "$schema": "",
+  "$id": "http://example.com/userDetails.json",
+  "type": "object",
+  "title": "User Details",
+  "required": [
+    "first_name",
+    "last_name",
+    "email",
+    "address1",
+    "city",
+    "state",
+    "zip"
+  ],
+  "properties": {
+    "first_name": {
+      "$id": "#/properties/first_name",
+      "type": "string",
+      "title": "First Name",
+      "input":  "text",
+      "required":  true,
+      "grid": 6,
+      "autocomplete": "given-name"
+    },
+    "last_name": {
+      "$id": "#/properties/last_name",
+      "type": "string",
+      "title": "Last Name",
+      "input":  "text",
+      "required":  true,
+      "grid": 6,
+      "autocomplete": "family-name"
+    },
+    "email": {
+      "$id": "#/properties/email",
+      "type": "string",
+      "title": "Email Address",
+      "input":  "email",
+      "format":  "email",
+      "required":  true,
+      "grid": 6,
+      "autocomplete": "email"
+    },
+    "phone": {
+      "$id": "#/properties/phone",
+      "type": "string",
+      "title": "Phone Number",
+      "input":  "text",
+      "grid": 6,
+      "autocomplete": "tel",
+      "mask": "(999) 999-9999"
+    },
+    "address1": {
+      "$id": "#/properties/address1",
+      "type": "string",
+      "title": "Address 1",
+      "input":  "text",
+      "required":  true,
+      "autocomplete": "address-line1"
+    },
+    "address2": {
+      "$id": "#/properties/address2",
+      "type": "string",
+      "title": "Address 2",
+      "input":  "text",
+      "autocomplete": "address-line2"
+    },
+    "city": {
+      "$id": "#/properties/city",
+      "type": "string",
+      "title": "City",
+      "input":  "text",
+      "required":  true,
+      "grid": 4,
+      "autocomplete": "locality"
+    },
+    "state": {
+      "$id": "#/properties/state",
+      "type": "string",
+      "title": "State",
+      "input":  "state_select",
+      "required":  true,
+      "grid": 4,
+      "autocomplete" : "region"
+    },
+    "zip": {
+      "$id": "#/properties/zip",
+      "type": "string",
+      "title": "Zip Code",
+      "input":  "text",
+      "required":  true,
+      "grid": 4,
+      "autocomplete": "postal-code",
+      "mask": "99999"
+    }
+  }
+}

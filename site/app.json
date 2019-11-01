@@ -1,0 +1,35 @@
+{
+  "id": "e68aa508-8f0a-4e69-be6f-7113e75ff8a2",
+  "name": "MyIdealTent",
+  "domain": "myidealtent.com",
+  "gaCode": "",
+  "mapsApiKey": "",
+  "description": "MyIdealMeta",
+  "tagline": "MyIdealTent",
+  "logo_image": "MyIdealTentLogo-v3.png",
+  "favicon": "favicon.png",
+  "ga_code": "UA-138652305-1",
+  "og_image": "yGU3TWi4kfuDp3dbOFc5BOKIqAAG9vHhzk8pczdw.jpeg",
+  "og_image_width": "1200",
+  "og_image_height": "630",
+  "twitter_handle": "PartnerPayout",
+  "cta_link": "tel:305.907.7698",
+  "cta_text": "Call Now! 305.907.7698",
+  "cta_title": "Get Started",
+  "cta_mode": "desktop",
+  "color_primary": "#eb4d02",
+  "color_secondary": null,
+  "color_success": null,
+  "color_info": null,
+  "color_danger": null,
+  "color_warning": null,
+  "color_white": null,
+  "color_black": null,
+  "trans_menu": false,
+  "nav_data": [
+    {
+      "slug": "/",
+      "title": "Home"
+    }
+  ]
+}

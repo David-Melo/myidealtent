@@ -1,0 +1,22 @@
+.react-select.is-invalid ~ .invalid-feedback,
+.react-checkbox.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.react-select.is-invalid:focus,
+.react-select.is-invalid > div:hover {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.react-select.is-valid:focus,
+.react-select.is-valid > div:hover
+{
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.react-checkbox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

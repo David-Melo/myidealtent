@@ -1,0 +1,38 @@
+version: '3.3'
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+
+  site:
+    build:
+      context: ./site
+      args:
+        - NODE_ENV=development
+    env_file:
+      - .env
+    volumes:
+      - ../site:/opt/app
+    networks:
+      - backend
+    entrypoint: run "yarn dev"
+    tty: true
+    restart: always
+
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - ../data/logs/nginx/:/var/log/nginx
+      - ./nginx/sites/:/etc/nginx/sites-available
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - backend
+    depends_on:
+      - site
+    tty: true
+    restart: always

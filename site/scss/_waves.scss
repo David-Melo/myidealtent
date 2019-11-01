@@ -1,0 +1,17 @@
+#waves-element {
+  height: 60vh;
+}
+
+.waves-content {
+  padding: 50px 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width:600px) {
+  #waves-element {
+    height: 97vh;
+  }
+}
