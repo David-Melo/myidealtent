@@ -39,10 +39,10 @@ export default class extends CartPage {
                 <FormComponent
                     config={formConfig}
                     initialData={{
-                        cc_number: "4242424242424242",
-                        cc_exp_month: "10",
-                        cc_exp_year: "20",
-                        cc_code: "123",
+                        cc_number: '',
+                        cc_exp_month: '',
+                        cc_exp_year: '',
+                        cc_code: '',
                     }}
                     validation={formValidation}
                     previousAction={()=>this.sendEvent('PREVIOUS_STEP')}

@@ -21,15 +21,28 @@ const rawData = {
         image: null
     },
     sides: {
-        id: null,
-        name: null,
-        price: null,
-        image: null
+        half: {
+            id: null,
+            name: null,
+            price: 0,
+            quantity: 0,
+            cost: 0
+        },
+        full: {
+            id: null,
+            name: null,
+            price: 0,
+            quantity: 0,
+            cost: 0
+        },
+        subtotal: 0,
+        completed: false
     },
     user: {
         first_name: null,
         last_name: null,
         email: null,
+        phone: null,
         address1: null,
         address2: null,
         city: null,
@@ -37,14 +50,52 @@ const rawData = {
         zip: null
     },
     order: {
+        tent: 0,
+        sides: 0,
         subtotal: 0,
         total: 0,
         token: null
     },
-    receipt: {
-
-    },
+    receipt: {},
     error: null
+};
+
+const testData = {
+    tent: {
+        id: 'small',
+        name: '10x10 Advertising Tent',
+        price: 999.00,
+        image: '/10x10.jpg'
+    },
+    sides: {
+        half: {
+            id: null,
+            name: null,
+            price: 0,
+            quantity: 0,
+            cost: 0
+        },
+        full: {
+            id: null,
+            name: null,
+            price: 0,
+            quantity: 0,
+            cost: 0
+        },
+        subtotal: 0,
+        completed: false
+    },
+    user: {
+        first_name: "David",
+        last_name: "Melo",
+        email: "davidmelo@desmdesigns.com",
+        phone: "7864990590",
+        address1: "1061 Wren Avenue",
+        address2: '',
+        city: "Miami",
+        state: "FL",
+        zip: "33166"
+    }
 };
 
 const OrderMachine = Machine(
@@ -53,37 +104,48 @@ const OrderMachine = Machine(
         initial: 'getTent',
         context: {
             tent: {
-                id: 'small',
-                name: '10x10 Advertising Tent',
-                price: 999.00,
-                image: '/static/10x10.jpg'
+                id: null,
+                name: null,
+                price: null,
+                image: null
             },
             sides: {
-                id: 'smallHalf',
-                tent: 'small',
-                name: 'Half Wall',
-                price: 139.00,
-                image: '/static/HalfWall.jpg'
+                half: {
+                    id: null,
+                    name: null,
+                    price: 0,
+                    quantity: 0,
+                    cost: 0
+                },
+                full: {
+                    id: null,
+                    name: null,
+                    price: 0,
+                    quantity: 0,
+                    cost: 0
+                },
+                subtotal: 0,
+                completed: false
             },
             user: {
-                first_name: "David",
-                last_name: "Melo",
-                email: "davidmelo@desmdesigns.com",
-                phone: "7864990590",
-                address1: "1061 Wren Avenue",
+                first_name: '',
+                last_name: '',
+                email: '',
+                phone: '',
+                address1: '',
                 address2: '',
-                city: "Miami",
-                state: "FL",
-                zip: "33166"
+                city: '',
+                state: '',
+                zip: ''
             },
             order: {
-                subtotal: 40,
-                total: 40,
+                tent: 0,
+                sides: 0,
+                subtotal: 0,
+                total: 0,
                 token: null
             },
-            receipt: {
-
-            },
+            receipt: {},
             error: null
         },
         states: {
@@ -115,8 +177,7 @@ const OrderMachine = Machine(
                         actions: ['updateSides', send('SIDES_SELECTED')],
                     },
                     SIDES_SELECTED: {
-                        target: 'getInfo',
-                        cond: 'sidesSelected'
+                        target: 'getInfo'
                     }
                 }
             },
@@ -222,8 +283,9 @@ const OrderMachine = Machine(
                         tent,
                         order: {
                             ...context.order,
-                            subtotal: context.order.subtotal + tent.price,
-                            total: context.order.total + tent.price
+                            tent: tent.price,
+                            subtotal: tent.price,
+                            total: tent.price
                         }
                     };
                 }
@@ -233,11 +295,15 @@ const OrderMachine = Machine(
                     let sides = event.data.sides;
                     return  {
                         ...context,
-                        sides,
+                        sides: {
+                            ...sides,
+                            completed: true
+                        },
                         order: {
                             ...context.order,
-                            subtotal: context.order.subtotal + sides.price,
-                            total: context.order.total + sides.price
+                            sides: sides.subtotal,
+                            subtotal: context.tent.price + sides.subtotal,
+                            total: context.tent.price + sides.subtotal
                         }
                     };
                 }
@@ -266,9 +332,6 @@ const OrderMachine = Machine(
         guards: {
             tentSelected: (context) => {
                 return !!context.tent.id;
-            },
-            sidesSelected: (context) => {
-                return !!context.sides.id;
             },
             userVerified: (context) => {
                 return !!context.user.email;

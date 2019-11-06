@@ -13,15 +13,10 @@ import {Col, Container, Row} from "reactstrap";
 import ShoppingCart from "../components/Order/ShoppingCart";
 
 class Index extends React.Component {
-    constructor() {
-        super();
-        this.state = {stripe: null};
-    }
     componentDidMount() {
         if (AppData.trans_menu) {
             window.addEventListener('scroll', NavBackgroundHandler);
         }
-        this.setState({stripe: window.Stripe('pk_test_8h2mcy6VMmCJj3JIE5BcCWAW00UIbA2y3q')});
     }
     componentWillUnmount() {
         if (AppData.trans_menu) {
@@ -40,7 +35,11 @@ class Index extends React.Component {
 
                 <section>
                     <Container>
-                        <ShoppingCart/>
+                        <Row>
+                            <Col md={4}>
+                                <ShoppingCart/>
+                            </Col>
+                        </Row>
                     </Container>
                 </section>
 

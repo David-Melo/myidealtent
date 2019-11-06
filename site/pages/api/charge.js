@@ -48,9 +48,16 @@ export default (req, res) => {
                     tent_id: data.tent.id,
                     tent_name: data.tent.name,
                     tent_price: data.tent.price,
-                    sides_id: data.sides.id,
-                    sides_name: data.sides.name,
-                    sides_price: data.sides.price,
+                    sides_half_id: data.sides.half.id,
+                    sides_half_name: data.sides.half.name,
+                    sides_half_price: data.sides.half.price,
+                    sides_half_quantity: data.sides.half.quantity,
+                    sides_half_cost: data.sides.half.cost,
+                    sides_full_id: data.sides.full.id,
+                    sides_full_name: data.sides.full.name,
+                    sides_full_price: data.sides.full.price,
+                    sides_full_quantity: data.sides.full.quantity,
+                    sides_full_cost: data.sides.full.cost,
                     first_name: data.user.first_name,
                     last_name: data.user.last_name,
                     email: data.user.email,
@@ -60,11 +67,13 @@ export default (req, res) => {
                     city: data.user.city,
                     state: data.user.state,
                     zip: data.user.zip,
-                    subtotal: data.order.total,
-                    total: data.order.subtotal,
+                    tent_subtotal: data.order.tent,
+                    sides_subtotal: data.order.sides,
+                    subtotal: data.order.subtotal,
+                    total: data.order.total,
                     charge_id: charge.id,
                     slug: hri.random(),
-                    ip: req.connection.remoteAddress
+                    visit_id: null
                 }).then((data) => {
                     return res.status(200).json({success: true, receipt: data});
                 }).catch((error) => {

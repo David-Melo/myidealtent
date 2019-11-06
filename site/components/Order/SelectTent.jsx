@@ -21,19 +21,19 @@ export default class extends CartPage {
             id: 'small',
             name: '10x10 Advertising Tent',
             price: 999.00,
-            image: '/static/10x10.jpg'
+            image: '/10x10.jpg'
         },
         medium: {
             id: 'medium',
             name: '10x15 Advertising Tent',
             price: 1299.00,
-            image: '/static/10x15.jpg'
+            image: '/10x15.jpg'
         },
         large: {
             id: 'large',
             name: '10x20 Advertising Tent',
             price: 1599.00,
-            image: '/static/10x20.jpg'
+            image: '/10x20.jpg'
         }
     };
 
@@ -53,6 +53,7 @@ export default class extends CartPage {
     };
 
     getItemValue = (itemId) => {
+        if(!itemId) return null;
         return { value: this.items[itemId].id, label: `${this.items[itemId].name} ($${this.items[itemId].price})` };
     };
 

@@ -18,9 +18,7 @@ class MyDocument extends Document {
                 <Head>
                     <GoogleAnalytics code={AppData.gaCode} />
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    <link rel="icon" type="image/x-icon" href="/static/favicon.png" />
-                    <script src="https://js.stripe.com/v3/"/>
-                    {/*<script src="//code.jivosite.com/widget.js" data-jv-id="aZC2GqC7YF" async></script>*/}
+                    <link rel="icon" type="image/x-icon" href="/favicon.png" />
                 </Head>
                 <body>
                     <div id="main-body" className="at-top">

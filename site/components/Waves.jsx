@@ -15,8 +15,8 @@ class Waves extends React.Component {
         return (
             <Fragment>
                 <Head>
-                    <script src="/static/three.r92.min.js"/>
-                    <script src="/static/vanta.waves.min.js"/>
+                    <script src="/three.r92.min.js"/>
+                    <script src="/vanta.waves.min.js"/>
                 </Head>
                 <div id="waves-element">
                     <div className="waves-content">

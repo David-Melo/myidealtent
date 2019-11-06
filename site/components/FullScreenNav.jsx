@@ -68,7 +68,7 @@ class FullScreenNav extends React.Component {
                     <Div className="full-nav-head">
 
                         <div className="text-center mb-3">
-                            <img className="nav-icon" src={`/static/${app.favicon}`} alt={app.name} height="50" />
+                            <img className="nav-icon" src={`/${app.favicon}`} alt={app.name} height="50" />
                         </div>
 
                         <Fragment>

@@ -73,7 +73,7 @@ class Navigation extends React.Component {
                 <Navbar id="main-nav" fixed="top" color="light" light={!app.trans_menu} dark={app.trans_menu} expand="lg">
                     <Container className="nav-container">
                         <NavbarBrand href="/">
-                            <img className="nav-icon" src={`/static/${app.logo_image}`} alt={app.name} height="80" />
+                            <img className="nav-icon" src={`/${app.logo_image}`} alt={app.name} height="80" />
                         </NavbarBrand>
                         {cta && ( app.cta_mode === 'both' || app.cta_mode === 'desktop' ) && (
                             <div className="d-none d-lg-block">

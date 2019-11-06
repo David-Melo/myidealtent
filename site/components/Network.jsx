@@ -20,8 +20,8 @@ class Network extends React.Component {
         return (
             <Fragment>
                 <Head>
-                    <script src="/static/three.r92.min.js"/>
-                    <script src="/static/vanta.net.min.js"/>
+                    <script src="/three.r92.min.js"/>
+                    <script src="/vanta.net.min.js"/>
                 </Head>
                 <div id="net-element" style={{backgroundColor: '#0073b8',height: '60vh'}}>
                     <div className="waves-content" dangerouslySetInnerHTML={{__html: this.props.config.content}}/>
